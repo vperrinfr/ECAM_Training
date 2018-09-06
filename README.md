@@ -1,4 +1,4 @@
-# Watson on Node-RED
+# Watson Labs
 
 This repository is a collection of labs to be trained Watson.
 
