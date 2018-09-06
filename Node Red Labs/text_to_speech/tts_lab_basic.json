@@ -1,0 +1,103 @@
+[{
+  "id": "bce0ffd6.7554b",
+  "type": "http in",
+  "z": "1489cc91.5952e3",
+  "name": "",
+  "url": "/talk/sayit",
+  "method": "get",
+  "upload": false,
+  "swaggerDoc": "",
+  "x": 123,
+  "y": 73,
+  "wires": [
+    ["6d7ce005.8c28a"]
+  ]
+}, {
+  "id": "6d7ce005.8c28a",
+  "type": "change",
+  "z": "1489cc91.5952e3",
+  "name": "Text to Payload",
+  "rules": [{
+    "t": "set",
+    "p": "payload",
+    "pt": "msg",
+    "to": "payload.text_to_say",
+    "tot": "msg"
+  }],
+  "action": "",
+  "property": "",
+  "from": "",
+  "to": "",
+  "reg": false,
+  "x": 306,
+  "y": 29,
+  "wires": [
+    ["1f9b667a.84159a"]
+  ]
+}, {
+  "id": "1f9b667a.84159a",
+  "type": "watson-text-to-speech",
+  "z": "1489cc91.5952e3",
+  "name": "",
+  "lang": "en-GB",
+  "langhidden": "en-GB",
+  "langcustom": "NoCustomisationSetting",
+  "langcustomhidden": "",
+  "voice": "en-GB_KateVoice",
+  "voicehidden": "",
+  "format": "audio/wav",
+  "password": "",
+  "payload-response": false,
+  "default-endpoint": true,
+  "service-endpoint": "https://stream.watsonplatform.net/text-to-speech/api",
+  "x": 406,
+  "y": 113,
+  "wires": [
+    ["dfe3bfa3.bee94"]
+  ]
+}, {
+  "id": "dfe3bfa3.bee94",
+  "type": "change",
+  "z": "1489cc91.5952e3",
+  "name": "Speech to Payload",
+  "rules": [{
+    "t": "set",
+    "p": "payload",
+    "pt": "msg",
+    "to": "speech",
+    "tot": "msg"
+  }],
+  "action": "",
+  "property": "",
+  "from": "",
+  "to": "",
+  "reg": false,
+  "x": 563,
+  "y": 26,
+  "wires": [
+    ["c70c8aa5.a0a228"]
+  ]
+}, {
+  "id": "c70c8aa5.a0a228",
+  "type": "function",
+  "z": "1489cc91.5952e3",
+  "name": "Set Headers",
+  "func": "// Set the content type to audio wave\nmsg.headers = {'Content-Type': 'audio/wav'};\nreturn msg;",
+  "outputs": 1,
+  "noerr": 0,
+  "x": 673,
+  "y": 111,
+  "wires": [
+    ["e9001f6d.4e497"]
+  ]
+}, {
+  "id": "e9001f6d.4e497",
+  "type": "http response",
+  "z": "1489cc91.5952e3",
+  "name": "",
+  "statusCode": "",
+  "headers": {},
+  "x": 825,
+  "y": 63,
+  "wires": []
+}]
