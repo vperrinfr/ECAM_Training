@@ -25,7 +25,7 @@ To get the Speech to Text service credentials on IBM Cloud automatically filled-
 
 ![STTSerivce](images/stt_service.png)
 
-Please refer to the [Node-RED setup lab](/introduction_to_node_red/README.md) for instructions.
+Please refer to the [Node-RED setup lab](https://github.com/watson-developer-cloud/node-red-labs/blob/master/introduction_to_node_red/README.md) for instructions.
 
 ## Building the flow
 ### 1. Uploading from a URL
